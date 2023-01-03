@@ -10,8 +10,7 @@ from schema_entry import EntryPoint
 from pyloggerhelper import log
 from {{ serv_name }}_pb.{{ serv_name }}_pb2_grpc import add_{{ serv_name | upper }}Servicer_to_server
 from {{ serv_name }}_pb.{{ serv_name }}_pb2 import DESCRIPTOR
-from .interceptor.timer import TimerInterceptor
-from .handdler import Handdler
+from handdler import Handdler
 
 _COMPRESSION_OPTIONS = {
     "none": grpc.Compression.NoCompression,
@@ -400,6 +399,6 @@ class Serv(EntryPoint):
         compression = _COMPRESSION_OPTIONS.get(self.config.get("compression"))
         log.debug("initialize compression config", compression=compression)
         if config.get("xds"):
-            self.xds_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs, TimerInterceptor())
+            self.xds_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs)
         else:
-            self.common_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs, TimerInterceptor())
+            self.common_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs)

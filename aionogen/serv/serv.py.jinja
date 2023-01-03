@@ -10,9 +10,8 @@ from grpc_health.v1 import health_pb2_grpc
 from grpc_reflection.v1alpha import reflection
 from schema_entry import EntryPoint
 from pyloggerhelper import log
-from .pb import rpc_protos, rpc_services
-from .handdler import Handdler
-from .interceptor.timer import TimerInterceptor
+from pb import rpc_protos, rpc_services
+from handdler import Handdler
 
 _COMPRESSION_OPTIONS = {
     "none": grpc.Compression.NoCompression,
@@ -433,7 +432,7 @@ class Serv(EntryPoint):
                 # loop.run_until_complete(self.xds_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs, TimerInterceptor()))
                 log.warn("aio grpc not support xds yet, waiting for the next version. running server as common")
 
-            loop.run_until_complete(self.common_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs, TimerInterceptor()))
+            loop.run_until_complete(self.common_serv(opts, handdler, addr, compression, max_threads, maximum_concurrent_rpcs))
 
         except KeyboardInterrupt:
             log.info("grpc stoping")

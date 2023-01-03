@@ -36,12 +36,17 @@ rpc的形式相比较起通常的http接口更加接近本地调用的模式,对
     + `ppm project add tp_py_grpc@cp-0.0.1//wscli --located-path=wscli.py` 同步websocket客户端
 
 + 添加拦截器功能组件
-    + `ppm project add tp_py_grpc@cp-0.0.1//aio_serv_interceptor --located-path=testpygrpc/serv/interceptor --kv=source::timer`增加异步服务端拦截器
-    + `ppm project add tp_py_grpc@cp-0.0.1//sync_serv_interceptor --located-path=testpygrpc/serv/interceptor --kv=source::timer`增加同步服务端拦截器
-    + `ppm project add tp_py_grpc@cp-0.0.1//aio_serv_interceptor_source --located-path=testpygrpc/serv/interceptor/timer.py --kv=source::timer`增加异步服务端拦截器的模板文件
-    + `ppm project add tp_py_grpc@cp-0.0.1//sync_serv_interceptor_source --located-path=testpygrpc/serv/interceptor/timer.py --kv=source::timer`增加同步服务端拦截器的模板文件
+    + `ppm project add tp_py_grpc@cp-0.0.1//aio_serv_interceptor --located-path=testpygrpc/interceptor --kv=source::timer`增加异步服务端拦截器
+    + `ppm project add tp_py_grpc@cp-0.0.1//sync_serv_interceptor --located-path=testpygrpc/interceptor --kv=source::timer`增加同步服务端拦截器
+    + `ppm project add tp_py_grpc@cp-0.0.1//aio_serv_interceptor_source --located-path=testpygrpc/interceptor/timer.py --kv=source::timer`增加异步服务端拦截器的模板文件
+    + `ppm project add tp_py_grpc@cp-0.0.1//sync_serv_interceptor_source --located-path=testpygrpc/interceptor/timer.py --kv=source::timer`增加同步服务端拦截器的模板文件
 
     + `ppm project add tp_py_grpc@cp-0.0.1//aio_sdk_interceptor --located-path=testpygrpc/sdk/interceptor --kv=source::timer`增加异步sdk拦截器
     + `ppm project add tp_py_grpc@cp-0.0.1//sync_sdk_interceptor --located-path=testpygrpc/sdk/interceptor --kv=source::timer`增加同步服务端拦截器
     + `ppm project add tp_py_grpc@cp-0.0.1//aio_sdk_interceptor_source --located-path=testpygrpc/sdk/interceptor/timer.py --kv=source::timer`增加异步sdk拦截器的模板文件
     + `ppm project add tp_py_grpc@cp-0.0.1//sync_sdk_interceptor_source --located-path=testpygrpc/sdk/interceptor/timer.py --kv=source::timer`增加同步服务端拦截器的模板文件
+
+### 服务端使用拦截器
+
+1. 在`serv.py`中`from interceptor.timer import Interceptor`
+2. 在`self.xds_serv(...)`或`self.common_serv(...)`中最后添加`Interceptor()`作为参数
