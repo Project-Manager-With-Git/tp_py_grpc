@@ -45,7 +45,7 @@
             "default_path": "pbschema/{{ serv_name }}.proto"
         },
         "dockerfile":{
-            "source": "cp_dockerfiles@v0.0.1//python_grpc_gen_dockerfile",
+            "source": "tp_py_grpc@dev//dockerfile",
             "description": "构造python的grpc的dockerfile",
             "default_path": "dockerfile"
         },
