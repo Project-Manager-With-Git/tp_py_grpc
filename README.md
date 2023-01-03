@@ -1,2 +1,3 @@
-# tp_py_grpc
-python的grpc模板及组件
+# tp_py_grpc-sync
+
+python的同步grpc模板及组件
