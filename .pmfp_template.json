@@ -1,6 +1,6 @@
 {
     "language": "py",
-    "description": "python语言同步接口的grpc服务和sdk的模板库.",
+    "description": "python语言同步接口的grpc服务模板库.",
     "author": "hsz",
     "template_type": "socket",
     "requires": [
