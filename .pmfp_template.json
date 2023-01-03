@@ -37,17 +37,12 @@
         "sync_serv": {
             "source": "tp_py_grpc@dev//sync_serv",
             "description": "grpc的服务端定义",
-            "default_path": "{{ project_name }}/serv"
+            "default_path": "{{ project_name }}"
         },
         "service_schema": {
             "source": "tp_py_grpc@dev//service_schema",
             "description": "项目定义service的proto文件",
             "default_path": "pbschema/{{ serv_name }}.proto"
-        },
-        "main": {
-            "source": "tp_py_grpc@dev//main",
-            "description": "项目入口文件",
-            "default_path": "{{ project_name }}/__main__.py"
         },
         "dockerfile":{
             "source": "cp_dockerfiles@v0.0.1//python_grpc_gen_dockerfile",
