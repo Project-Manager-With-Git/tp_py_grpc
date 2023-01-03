@@ -139,6 +139,11 @@
             "source": "dockerfile.jinja",
             "description": "构造项目镜像使用的dockerfile",
             "default_path": "dockerfile"
+        },
+        "dockerfilenogen": {
+            "source": "dockerfilenogen.jinja",
+            "description": "构造不编译pb的项目镜像使用的dockerfile",
+            "default_path": "dockerfile"
         }
     }
 }

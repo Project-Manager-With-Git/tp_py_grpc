@@ -1,7 +1,7 @@
 from typing import Any, Dict
 import grpc
 from pyloggerhelper import log
-from .pb import rpc_protos, rpc_services
+from pb import rpc_protos, rpc_services
 
 
 class Handdler(rpc_services.{{ serv_name | upper }}Servicer):
