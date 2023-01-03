@@ -1,6 +1,6 @@
 {
     "language": "py",
-    "description": "python语言同步接口的grpc服务和sdk的模板库.",
+    "description": "不根据pb生成代码的python语言同步接口的grpc服务.",
     "author": "hsz",
     "template_type": "socket",
     "requires": [
@@ -34,8 +34,8 @@
         }
     },
     "components": {
-        "sync_serv": {
-            "source": "tp_py_grpc@dev//sync_serv",
+        "sync_nogen_serv": {
+            "source": "tp_py_grpc@dev//sync_nogen_serv",
             "description": "grpc的服务端定义",
             "default_path": "{{ project_name }}"
         },
