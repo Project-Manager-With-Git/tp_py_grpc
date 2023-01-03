@@ -35,17 +35,17 @@
     },
     "components": {
         "aio_serv": {
-            "source": "tp_py_grpc@dev//aio_serv",
+            "source": "tp_py_grpc@cp-0.0.1//aio_serv",
             "description": "grpc的服务端定义",
             "default_path": "{{ project_name }}"
         },
         "service_schema": {
-            "source": "tp_py_grpc@dev//service_schema",
+            "source": "tp_py_grpc@cp-0.0.1//service_schema",
             "description": "项目定义service的proto文件",
             "default_path": "pbschema/{{ serv_name }}.proto"
         },
         "dockerfile":{
-            "source": "tp_py_grpc@dev//dockerfile",
+            "source": "tp_py_grpc@cp-0.0.1//dockerfile",
             "description": "构造python的grpc的dockerfile",
             "default_path": "dockerfile"
         },
