@@ -1,6 +1,6 @@
 {
     "language": "py",
-    "description": "python语言同步接口的grpc服务模板库.",
+    "description": "python语言异步接口的grpc服务模板库.",
     "author": "hsz",
     "template_type": "socket",
     "requires": [
@@ -34,8 +34,8 @@
         }
     },
     "components": {
-        "sync_serv": {
-            "source": "tp_py_grpc@dev//sync_serv",
+        "aio_serv": {
+            "source": "tp_py_grpc@dev//aio_serv",
             "description": "grpc的服务端定义",
             "default_path": "{{ project_name }}"
         },
