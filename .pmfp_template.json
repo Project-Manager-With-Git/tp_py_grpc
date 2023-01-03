@@ -44,8 +44,8 @@
             "description": "项目定义service的proto文件",
             "default_path": "pbschema/{{ serv_name }}.proto"
         },
-        "dockerfile":{
-            "source": "tp_py_grpc@dev//dockerfile",
+        "dockerfilenogen":{
+            "source": "tp_py_grpc@dev//dockerfilenogen",
             "description": "构造python的grpc的dockerfile",
             "default_path": "dockerfile"
         },
