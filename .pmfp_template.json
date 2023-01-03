@@ -22,6 +22,10 @@
         "types-protobuf>=3.19.6"
     ],
     "template_keys": {
+        "cross_compiling": {
+            "description": "交叉编译",
+            "default": "--platform=$TARGETPLATFORM "
+        },
         "serv_name": {
             "description": "定义service的名字",
             "default": "{{ project_name }}",
@@ -42,19 +46,44 @@
             "description": "项目定义service的proto文件",
             "default_path": "pbschema/{{ serv_name }}.proto"
         },
-        "main": {
-            "source": "__main__.py.jinja",
-            "description": "定义项目的入口函数",
-            "default_path": "__main__.py"
-        },
         "aio_serv": {
             "source": "aio/serv",
             "description": "grpc异步服务端模块模板",
             "default_path": "{{ project_name }}/serv"
         },
+        "aio_nogen_serv": {
+            "source": "aionogen/serv",
+            "description": "grpc异步服务端模块模板",
+            "default_path": "{{ project_name }}/serv"
+        },
+        "sync_serv": {
+            "source": "sync/serv",
+            "description": "grpc同步服务端模块模板",
+            "default_path": "{{ project_name }}/serv"
+        },
+        "sync_nogen_serv": {
+            "source": "nogen/serv",
+            "description": "grpc同步服务端模块模板",
+            "default_path": "{{ project_name }}/serv"
+        },
         "aio_sdk": {
             "source": "aio/sdk",
             "description": "grpc异步sdk模块模板",
+            "default_path": "{{ project_name }}/sdk"
+        },
+        "aio_nogen_sdk": {
+            "source": "aionogen/sdk",
+            "description": "grpc异步sdk模块模板",
+            "default_path": "{{ project_name }}/sdk"
+        },
+        "sync_sdk": {
+            "source": "sync/sdk",
+            "description": "grpc同步sdk模块模板",
+            "default_path": "{{ project_name }}/sdk"
+        },
+        "sync_nogen_sdk": {
+            "source": "nogen/sdk",
+            "description": "grpc同步sdk模块模板",
             "default_path": "{{ project_name }}/sdk"
         },
         "aio_serv_interceptor": {
@@ -67,36 +96,6 @@
             "description": "grpc异步服务端模块拦截器文件模板",
             "default_path": "{{ project_name }}/serv/interceptor/{{ source }}.py"
         },
-        "aio_sdk_interceptor": {
-            "source": "aio_interceptor/sdk_interceptor",
-            "description": "grpc异步sdk模块拦截器模板",
-            "default_path": "{{ project_name }}/sdk/interceptor"
-        },
-        "aio_sdk_interceptor_source": {
-            "source": "aio_interceptor/sdk_interceptor/_ref_source_fer_.py.jinja",
-            "description": "grpc异步sdk端模块拦截器文件模板",
-            "default_path": "{{ project_name }}/sdk/interceptor/{{ source }}.py"
-        },
-        "aio_nogen_serv": {
-            "source": "aionogen/serv",
-            "description": "grpc异步服务端模块模板",
-            "default_path": "{{ project_name }}/serv"
-        },
-        "aio_nogen_sdk": {
-            "source": "aionogen/sdk",
-            "description": "grpc异步sdk模块模板",
-            "default_path": "{{ project_name }}/sdk"
-        },
-        "sync_serv": {
-            "source": "sync/serv",
-            "description": "grpc同步服务端模块模板",
-            "default_path": "{{ project_name }}/serv"
-        },
-        "sync_sdk": {
-            "source": "sync/sdk",
-            "description": "grpc同步sdk模块模板",
-            "default_path": "{{ project_name }}/sdk"
-        },
         "sync_serv_interceptor": {
             "source": "sync_interceptor/serv_interceptor",
             "description": "grpc同步服务端模块拦截器模板",
@@ -106,6 +105,16 @@
             "source": "sync_interceptor/serv_interceptor/_ref_source_fer_.py.jinja",
             "description": "grpc异步服务端模块拦截器文件模版",
             "default_path": "{{ project_name }}/serv/interceptor/{{ source }}.py"
+        },
+        "aio_sdk_interceptor": {
+            "source": "aio_interceptor/sdk_interceptor",
+            "description": "grpc异步sdk模块拦截器模板",
+            "default_path": "{{ project_name }}/sdk/interceptor"
+        },
+        "aio_sdk_interceptor_source": {
+            "source": "aio_interceptor/sdk_interceptor/_ref_source_fer_.py.jinja",
+            "description": "grpc异步sdk端模块拦截器文件模板",
+            "default_path": "{{ project_name }}/sdk/interceptor/{{ source }}.py"
         },
         "sync_sdk_interceptor": {
             "source": "sync_interceptor/sdk_interceptor",
@@ -117,15 +126,19 @@
             "description": "grpc同步sdk模块拦截器模板",
             "default_path": "{{ project_name }}/sdk/interceptor/{{ source }}.py"
         },
-        "sync_nogen_serv": {
-            "source": "nogen/serv",
-            "description": "grpc同步服务端模块模板",
-            "default_path": "{{ project_name }}/serv"
+        "servinit": {
+            "source": "__init__.py.jinja",
+            "description": "serv作为模块时的模块入口文件"
         },
-        "sync_nogen_sdk": {
-            "source": "nogen/sdk",
-            "description": "grpc同步sdk模块模板",
-            "default_path": "{{ project_name }}/sdk"
+        "main": {
+            "source": "__main__.py.jinja",
+            "description": "定义复杂项目的入口函数",
+            "default_path": "__main__.py"
+        },
+        "dockerfile": {
+            "source": "dockerfile.jinja",
+            "description": "构造项目镜像使用的dockerfile",
+            "default_path": "dockerfile"
         }
     }
 }

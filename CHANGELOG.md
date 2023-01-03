@@ -15,6 +15,8 @@
 | `aio_nogen_sdk`         | grpc异步sdk模块模板          |
 | `sync_sdk`              | grpc同步sdk模块模板          |
 | `sync_nogen_sdk`        | grpc同步sdk模块模板          |
+| `main`                  | 定义项目的入口函数           |
+| `servinit`              | serv作为模块时的模块入口文件 |
 
 ## 新增组件资源模版
 
@@ -27,10 +29,9 @@
 
 ## 新增基础组件
 
-| 组件名            | 说明                       |
-| ----------------- | -------------------------- |
-| `service_schema`  | 项目定义service的proto文件 |
-| `main`            | 定义项目的入口函数         |
+| 组件名           | 说明                       |
+| ---------------- | -------------------------- |
+| `service_schema` | 项目定义service的proto文件 |
 | `aio_serv`        | grpc异步服务端模块模板     |
 | `aio_nogen_serv`  | grpc异步服务端模块模板     |
 | `sync_serv`       | grpc同步服务端模块模板     |
