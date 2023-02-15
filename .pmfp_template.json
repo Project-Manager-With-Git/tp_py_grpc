@@ -128,7 +128,8 @@
         },
         "servinit": {
             "source": "__init__.py.jinja",
-            "description": "serv作为模块时的模块入口文件"
+            "description": "serv作为模块时的模块入口文件",
+            "default_path": "{{ project_name }}/__init__.py"
         },
         "main": {
             "source": "__main__.py.jinja",
